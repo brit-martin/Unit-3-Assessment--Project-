@@ -26,3 +26,34 @@ form.addEventListener('submit', (event) => {
     })
 
 })
+
+axios.get('/item')
+.then ((response) => {
+    addItemsToDom(response.data)
+})
+.catch ((error) => {
+    console.log(error)
+})
+
+function addItemsToDom(groceryArray){
+  document.querySelector('#grocery-list').innerHTML = "" 
+
+    for ( let i=0; i < groceryArray.length; i++){
+       
+    let groceryDiv = document.createElement('div')
+    let food = document.createElement('h4')
+    let howMany = document.createElement('p')
+    let store = document.createElement('p')
+
+    groceryDiv.appendChild(food)
+    groceryDiv.appendChild(howMany)
+    groceryDiv.appendChild(store)
+
+    food.innerHTML = groceryArray[i].item
+    howMany.innerHTML = "Quantity: " + groceryArray[i].quantity
+    store.innerHTML = "Store: " + groceryArray[i].location
+ 
+    document.querySelector('#grocery-list').appendChild(groceryDiv);
+    }
+
+}

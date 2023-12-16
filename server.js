@@ -26,6 +26,14 @@ app.post('/add-item', (req, res) => {
    res.status(200).send(db)  
 })
 
+app.get('/item', (req, res) => {
+    res.status(200).send(db)
+})
+
+
+
+
+
 
 app.listen(8000, () => {
     console.log('we have started the server on port 8000')
