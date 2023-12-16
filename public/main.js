@@ -5,11 +5,7 @@ let quantityInput = document.querySelector('#how-many')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
-
-    if (isNaN(+quantityInput.value)){
-        alert('please put in a valid number')
-        return
-    }
+    alert("Item added to grocery list")
 
     let myBody  = {
         item: itemInput.value,
@@ -41,7 +37,7 @@ function addItemsToDom(groceryArray){
     for ( let i=0; i < groceryArray.length; i++){
        
     let groceryDiv = document.createElement('div')
-    let food = document.createElement('h4')
+    let food = document.createElement('h3')
     let howMany = document.createElement('p')
     let store = document.createElement('p')
 
