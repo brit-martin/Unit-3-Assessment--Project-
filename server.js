@@ -32,9 +32,10 @@ app.get('/item', (req, res) => {
 
 app.put('/edit-item', (req, res) => {
     let item = req.query.item
+    let newQuantity = req.query.quantity
     for ( let i =0; i < db.length; i ++){
         if (db[i].item === item){
-            db.replace(i)
+            db[i].quantity = newQuantity
         }
     }
 console.log(db)

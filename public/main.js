@@ -9,13 +9,13 @@ form.addEventListener('submit', (event) => {
 
     let myBody  = {
         item: itemInput.value,
-        quanity: quantityInput.value,
+        quantity: quantityInput.value,
         location: locationInput.value
     }
 
     axios.post('/add-item', myBody)
     .then ((response) => {
-        console.log(response.data)
+
     })
     .catch ((error) => {
         console.log(error)
@@ -36,20 +36,20 @@ function addItemsToDom(groceryArray){
 
     for ( let i=0; i < groceryArray.length; i++){
        
-    let groceryDiv = document.createElement('div')
-    let food = document.createElement('h3')
-    let howMany = document.createElement('p')
-    let store = document.createElement('p')
+        let groceryDiv = document.createElement('div')
+        let food = document.createElement('h3')
+        let howMany = document.createElement('p')
+        let store = document.createElement('p')
 
-    groceryDiv.appendChild(food)
-    groceryDiv.appendChild(howMany)
-    groceryDiv.appendChild(store)
+        groceryDiv.appendChild(food)
+        groceryDiv.appendChild(howMany)
+        groceryDiv.appendChild(store)
 
-    food.innerHTML = groceryArray[i].item
-    howMany.innerHTML = 'Quantity: ' + groceryArray[i].quantity
-    store.innerHTML = "Store: " + groceryArray[i].location
-        
-    document.querySelector('#grocery-list').appendChild(groceryDiv);
+        food.innerHTML = groceryArray[i].item
+        howMany.innerHTML = 'Quantity: ' + groceryArray[i].quantity
+        store.innerHTML = "Store: " + groceryArray[i].location
+            
+        document.querySelector('#grocery-list').appendChild(groceryDiv);
     }
 
 }
@@ -62,10 +62,12 @@ let updateStore = document.querySelector('#update-store')
 
 updateList.addEventListener("submit", (event) => {
     event.preventDefault()
+    alert('Item quantity updated.')
 
     let item = updateItem.value
+    let quantity = updateQuantity.value
 
-    axios.put(`/edit-item?item=${item}`)
+    axios.put(`/edit-item?item=${item}&quantity=${quantity}`)
     .then ((response) => {
             addItemsToDom(response.data)
     })
