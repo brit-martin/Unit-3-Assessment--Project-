@@ -10,18 +10,33 @@
     <h1>Grocery List</h1>
     <form id="add-item">
         <h2>Add Item</h2>
-        <label for="create-item">Item</label>
-        <input id="create-item"></input>
+        <label for="create-item">Item:</label>
+        <input id="create-item"/>
 
-        <label for="how-many">Quantity</label>
-        <input id="how-many"></input>
+        <label for="how-many">Quantity:</label>
+        <input id="how-many"/>
 
-        <label for="location">Store</label>
-        <input id="location"></input>
+        <label for="location">Store:</label>
+        <input id="location"/>
         
         <button>Add</button>
     </form>
+    <form id="update-list">
+        <h3>Change List</h3>
+        <label for="update-item">Item:</label>
+        <input id="update-item"/>
+
+        <label for="update-quantity">Quantity:</label>
+        <input id="update-quantity"/>
+
+        <label for="update-store">Store:</label>
+        <input id="update-store"/>
+
+        <button>Update</button>
+    </form>
+
     <div id="grocery-list"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js"></script>
 </body>

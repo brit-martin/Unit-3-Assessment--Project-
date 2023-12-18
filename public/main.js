@@ -46,10 +46,33 @@ function addItemsToDom(groceryArray){
     groceryDiv.appendChild(store)
 
     food.innerHTML = groceryArray[i].item
-    howMany.innerHTML = "Quantity: " + groceryArray[i].quantity
+    howMany.innerHTML = 'Quantity: ' + groceryArray[i].quantity
     store.innerHTML = "Store: " + groceryArray[i].location
- 
+        
     document.querySelector('#grocery-list').appendChild(groceryDiv);
     }
 
 }
+
+
+let updateList = document.querySelector('#update-list')
+let updateItem = document.querySelector('#update-item')
+let updateQuantity = document.querySelector('#update-quantity')
+let updateStore = document.querySelector('#update-store')
+
+updateList.addEventListener("submit", (event) => {
+    event.preventDefault()
+
+    let item = updateItem.value
+
+    axios.put(`/edit-item?item=${item}`)
+    .then ((response) => {
+            addItemsToDom(response.data)
+    })
+    .catch ((error) => {
+        console.log(error)
+    })
+
+
+
+})

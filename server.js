@@ -30,8 +30,16 @@ app.get('/item', (req, res) => {
     res.status(200).send(db)
 })
 
-
-
+app.put('/edit-item', (req, res) => {
+    let item = req.query.item
+    for ( let i =0; i < db.length; i ++){
+        if (db[i].item === item){
+            db.replace(i)
+        }
+    }
+console.log(db)
+    res.status(200).send(db)
+})
 
 
 
